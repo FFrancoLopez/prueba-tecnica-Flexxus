@@ -1,0 +1,6 @@
+-- 11. Para cada puesto obtener la suma de sueldos.
+
+SELECT P.PUESTO, SUM(E.SUELDO) AS TOTAL_SUELDOS
+FROM EMPLEADOS E
+JOIN PUESTOS P ON E.PUESTO_ID = P.ID
+GROUP BY P.PUESTO;

@@ -1,0 +1,7 @@
+-- 5. Seleccionar el nombre, sueldo y localidad donde trabajan los empleados que tengan un sueldo entre 10000 y 13000.
+
+SELECT E.NOMBRES, E.SUELDO, L.LOCALIDAD 
+FROM EMPLEADOS E
+JOIN DEPARTAMENTOS D ON E.DEPARTAMENTO_ID = D.ID
+JOIN LOCALIDADES L ON D.LOCALIDAD_ID = L.ID
+WHERE E.SUELDO BETWEEN 10000 AND 13000;
