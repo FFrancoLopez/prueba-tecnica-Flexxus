@@ -7,12 +7,17 @@ export class ArticlesService {
     constructor( private readonly prisma: PrismaService ) {}
 
     async getArticles(name?: string, isActive?: boolean) {
-        return this.prisma.articles.findMany({
+        const article = await this.prisma.articles.findMany({
         where: {
             name: name ? { contains: name, mode: 'insensitive' } : undefined,
             isActive: isActive !== undefined ? isActive : undefined,
         },
         });
+
+        if (!article.length) {
+            throw new NotFoundException(`No se encontraron artículos con el nombre: ${name}`);
+        }
+        return article;
     }
 
     async getArticleById(id: string) {
@@ -45,6 +50,11 @@ export class ArticlesService {
         throw new BadRequestException('El nombre y la marca son obligatorios');
         }
 
+        const existingArticle = await this.prisma.articles.findFirst({ where: { name: data.name } });
+
+        if (existingArticle) {
+            throw new BadRequestException('El artículo ya está registrado.');
+        }
         return this.prisma.articles.create({
             data: {
                 name: data.name,

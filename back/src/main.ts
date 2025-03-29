@@ -10,7 +10,7 @@ async function bootstrap() {
 
   const swaggerConfig = new DocumentBuilder()
     .setTitle('Prueba Técnica de Flexxus')
-    .setDescription('API para el proyecto de prueba técnica de Flexxus')
+    .setDescription('API para el proyecto de la prueba técnica de Flexxus')
     .setVersion('1.0')
     .addBearerAuth()
     .build();

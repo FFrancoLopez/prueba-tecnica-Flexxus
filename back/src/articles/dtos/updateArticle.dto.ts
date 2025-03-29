@@ -1,10 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsOptional, IsString, IsBoolean, Max, MaxLength } from 'class-validator';
+import { IsOptional, IsString, IsBoolean, MaxLength } from 'class-validator';
 
 export class UpdateArticleDto {
     @ApiProperty({
         description: 'Nombre del artículo (opcional)',
-        example: 'Televisor LED 65"',
+        example: 'Televisor LED 43 Full HD',
     })
     @IsOptional()
     @IsString()
@@ -13,7 +13,7 @@ export class UpdateArticleDto {
 
     @ApiProperty({
       description: 'Marca del artículo (opcional)',
-      example: 'Samsung',
+      example: 'Philips',
     })
     @IsOptional()
     @IsString()
