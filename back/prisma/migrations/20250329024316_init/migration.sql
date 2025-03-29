@@ -6,5 +6,5 @@ CREATE TABLE "Articles" (
     "brand" TEXT NOT NULL,
     "isActive" BOOLEAN NOT NULL DEFAULT true,
 
-    CONSTRAINT "Article_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Articles_pkey" PRIMARY KEY ("id")
 );
