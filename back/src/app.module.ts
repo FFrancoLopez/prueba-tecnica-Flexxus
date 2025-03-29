@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { EmployeesModule } from './employees/employees.module';
+import { ArticlesModule } from './articles/articles.module';
 
 
 @Module({
   imports: [
-    EmployeesModule,
+    ArticlesModule,
   ],
   controllers: [],
   providers: [],
