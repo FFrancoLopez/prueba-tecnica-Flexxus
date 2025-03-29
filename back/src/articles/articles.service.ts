@@ -77,9 +77,10 @@ export class ArticlesService {
         throw new NotFoundException(`No se encontró el artículo con ID: ${id}`);
         }
 
-        return this.prisma.articles.update({
+        await this.prisma.articles.update({
             where: { id },
             data: { isActive: false, updatedAt: new Date() },
         });
+        return {message: 'Artículo eliminado con éxito.'};
     }
 }

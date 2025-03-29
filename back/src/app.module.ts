@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { ArticlesModule } from './articles/articles.module';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -15,8 +17,11 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
     }),
     ArticlesModule,
+    UsersModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],
 })
+
 export class AppModule {}

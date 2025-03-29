@@ -13,10 +13,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserRole {
+  USER
+  ADMIN
+}
+
 model Articles {
   id          String   @id @default(cuid())
   name        String
   updatedAt   DateTime @updatedAt
   brand       String
   isActive    Boolean  @default(true)
+}
+
+model Users {
+  id            String   @id @default(cuid())
+  nameAndLastName String
+  email         String   @unique
+  password      String
+  role          UserRole?   @default(USER)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
